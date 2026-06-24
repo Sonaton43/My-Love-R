@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riitika Love  You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("love.jpg");
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+    }
+    .latter-box {
+      margin: auto;
+      padding: auto;
+      background-color: transparent;
+      min-width: 300px;
+      min-height: 180px;
+      position: relative;
+    }
+    .latter {
+      background-color: #fdfd9a;
+      color: black;
+      position: absolute;
+      top: -152px;
+      left: 7px;
+      height: 149px;
+      border-radius: 5px;
+      width: 256px;
+      z-index: 0;
+      transform: translateY(152px);
+      transition: transform 2.5s ease-in-out 0.7s;
+      padding: 15px;
+    }
+    .latter > div {
+        position: relative; /* Ensure the parent is positioned */
+        width: 100%;
+        height: 100%;
+    }
+    .latter-top{
+        font-size: 9px;
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translate(-50%);
+        color: black;
+        font-weight: 600;
+    }
+      
+      .latter > div::after {
+        content: "";
+        position: absolute; /* Make the pseudo-element fill the entire parent */
+        top: -45px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        display: block; /* Ensures the pseudo-element is a block element */
+        background-image: url("r.png");
+        background-size: 115px 130px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity: 0.3; /* Set opacity to 30% */
+        pointer-events: none; /* Prevents interaction with the pseudo-element */
+      }
+      
+    .triangle-bottom {
+      width: 0;
+      border-bottom: 91px solid red;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 4;
+    }
+    .triangle-top {
+      width: 0;
+      border-top: 91px solid red;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top center;
+      transform: rotateX(0deg);
+      z-index: 1;
+      transition: transform 1s ease-in-out;
+    }
+    .triangle-top.active {
+      transform: rotateX(-180deg);
+    }
+    .latter.active2 {
+      transform: translateY(0);
+      z-index: 2;
+      transition: transform 2.5s ease-in-out;
+    }
+    .triangle-left {
+      width: 0;
+      border-bottom: 150px solid rgb(253, 104, 104);
+      border-left: 90px solid transparent;
+      border-right: 90px solid transparent;
+      overflow: hidden;
+      position: absolute;
+      top: 15px;
+      left: -15px;
+      transform: rotate(90deg);
+      z-index: 3;
+    }
+    .triangle-right {
+      width: 0;
+      border-bottom: 150px solid rgb(253, 104, 104);
+      border-left: 90px solid transparent;
+      border-right: 90px solid transparent;
+      overflow: hidden;
+      position: absolute;
+      top: 15px;
+      right: -15px;
+      z-index: 3;
+      transform: rotate(-90deg);
+    }
+    .open-latter {
+      position: absolute;
+      z-index: 9;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: blueviolet;
+      border: none;
+      outline: none;
+      padding: 5px 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .latter-text{
+        font-size: 13px;
+        margin: 0;
+        font-family: 'Dancing Script', cursive;
+        font-weight: 500;
+    }
+    .latter-head{
+        font-weight: 600;
+        margin: 0;
+        font-size: 14px;
+        margin-bottom: 3px;
+        margin-top: 15px;
+        font-family: 'Dancing Script', cursive;
+    }
+    .latter-foot{
+        font-weight: 600;
+        margin: 0;
+        font-size: 13px;
+        margin-top: 3px;
+        font-family: 'Dancing Script', cursive;
+    }
+  </style>
+</head>
+<body>
+  <div class="latter-box">
+    <div class="triangle-bottom"></div>
+    <div class="triangle-left"></div>
+    <div class="triangle-right"></div>
+    <div class="triangle-top"></div>
+    <div class="latter">
+        <div>
+            <p class="latter-top">ॐ नमः पार्वती पतये हर हर महादेव</p>
+            <p class="latter-head">My dear special one ❤️,</p>
+            <p class="latter-text">
+                How can I tell you that your smile, your eyes, your presence, just everything about you, I love. In my eyes, you are totally perfect. You are my world, my life, you mean a lot to me. I will never let you go because I know my life won’t be complete without you in it. <br>
+            </p>
+            <p class="latter-foot">I love you with all my heart ❤️.</p>
+        </div>
+    </div>
+    <button class="open-latter" onclick="toggleBox()">Open Latter</button>
+  </div>
+
+  <script>
+    function toggleBox() {
+      const triangleTop = document.querySelector('.triangle-top');
+      const latter = document.querySelector('.latter');
+      const button = document.querySelector('.open-latter');
+
+      // Open the box and hide the button
+      if (!triangleTop.classList.contains('active')) {
+        triangleTop.classList.add('active'); // Rotate the top triangle
+        setTimeout(() => {
+          latter.classList.add('active2'); // Slide in the latter box after 1 second
+        }, 1000);
+        button.textContent = 'Close'; // Change button text to "Close"
+        button.style.display = 'none'; // Hide the button
+      }
+    }
+  </script>
+</body>
+</html>
